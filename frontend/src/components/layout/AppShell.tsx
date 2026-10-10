@@ -19,6 +19,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useAuth } from "@/contexts/AuthContext";
 import { useTheme } from "@/contexts/ThemeContext";
 import { Button } from "@/components/ui/button";
+import { ChatbotWidget } from "@/components/chat/ChatbotWidget";
 import { canAccess, routeRoles } from "@/lib/roles";
 import { cn } from "@/lib/utils";
 
@@ -204,6 +205,9 @@ export function AppShell() {
           <Outlet />
         </motion.main>
       </div>
+
+      {/* Floating Stocker AI Copilot Assistant */}
+      <ChatbotWidget />
     </div>
   );
 }

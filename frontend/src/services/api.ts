@@ -375,3 +375,21 @@ export async function downloadAuthorizedFile(path: string): Promise<Blob> {
   if (!res.ok) throw new Error(`Download failed (${res.status})`);
   return res.blob();
 }
+
+export type ChatbotResponse = {
+  reply: string;
+  suggestions?: string[];
+  action?: {
+    label: string;
+    path: string;
+  };
+};
+
+export const chatbotAPI = {
+  sendMessage: (message: string) =>
+    apiRequest<ChatbotResponse>("/api/chatbot/message", {
+      method: "POST",
+      body: JSON.stringify({ message }),
+    }),
+};
+

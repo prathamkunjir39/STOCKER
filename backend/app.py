@@ -250,6 +250,7 @@ def register_blueprints(app: Flask):
     from routes.anomaly import anomaly_bp
     from routes.recommendation import recommendation_bp
     from routes.report import report_bp
+    from routes.chatbot import chatbot_bp
 
     # Register blueprints
     app.register_blueprint(auth_bp, url_prefix='/api/auth')
@@ -261,6 +262,7 @@ def register_blueprints(app: Flask):
     app.register_blueprint(anomaly_bp, url_prefix='/api/anomalies')
     app.register_blueprint(recommendation_bp, url_prefix='/api/recommendations')
     app.register_blueprint(report_bp, url_prefix='/api/reports')
+    app.register_blueprint(chatbot_bp, url_prefix='/api/chatbot')
 
     logger.info("All blueprints registered")
 
